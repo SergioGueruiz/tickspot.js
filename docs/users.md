@@ -5,6 +5,7 @@ This module allows you to interact with the Tickspot users.
 - [List Users](#list-users)
 - [List Deleted Users](#list-deleted-users)
 - [List User Entries](#list-user-entries)
+- [Create User](#create-user)
 
 ## List Users
 
@@ -175,3 +176,38 @@ const result = await tickspot.users.listEntries(params, callback);
   ...
 ]
 ```
+
+## Create user
+
+This will create a new user from the parameters passed, it is strictly limited to administrators.
+
+- [Required] firstName
+- [Required] lastName
+- [Required] email
+- [Optional] admin
+- [Optional] billableRate
+
+
+This method returns a promise with the response data from the tickspot API.
+
+```javascript
+const params = {
+  firstName: "John",
+  lastName: "Doe",
+  email: "johndoe@emial.com",
+  admin: false,
+  billableRate: "100.0"
+};
+const result = await tickspot.users.create(params);
+// The result would be something like the following:
+  {
+    id: 123,
+    first_name: "John",
+    last_name: "Doe",
+    email: "admin@tickspot.com",
+    admin: "false",
+    billable_rate: "100.0",
+    created_at: "2022-07-29T15:03:19.000-04:00",
+    updated_at: "2022-07-29T15:03:19.000-04:00"
+  }
+...
