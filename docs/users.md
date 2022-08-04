@@ -184,9 +184,6 @@ This will create a new user from the parameters passed, it is strictly limited t
 - [Required] firstName
 - [Required] lastName
 - [Required] email
-- [Optional] admin
-- [Optional] billableRate
-
 
 This method returns a promise with the response data from the tickspot API.
 
@@ -194,9 +191,7 @@ This method returns a promise with the response data from the tickspot API.
 const params = {
   firstName: "John",
   lastName: "Doe",
-  email: "johndoe@emial.com",
-  admin: false,
-  billableRate: "100.0"
+  email: "jd@tickspot.com"
 };
 const result = await tickspot.users.create(params);
 // The result would be something like the following:
@@ -204,9 +199,7 @@ const result = await tickspot.users.create(params);
     id: 123,
     first_name: "John",
     last_name: "Doe",
-    email: "admin@tickspot.com",
-    admin: "false",
-    billable_rate: "100.0",
+    email: "jd@tickspot.com",
     created_at: "2022-07-29T15:03:19.000-04:00",
     updated_at: "2022-07-29T15:03:19.000-04:00"
   }

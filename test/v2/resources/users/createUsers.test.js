@@ -16,11 +16,9 @@ const URL = `${tickspot.baseURL}/users.json`;
 
 describe('#create', () => {
   const userData = {
-    firstName: 'Test',
-    lastName: 'One',
-    email: 'create@user.co',
-    admin: true,
-    billableRate: '100.0',
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'jd@tickspot.com',
   };
 
   beforeEach(() => {

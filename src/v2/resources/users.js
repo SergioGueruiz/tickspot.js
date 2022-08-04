@@ -83,8 +83,6 @@ class Users extends BaseResource {
    *    [Required] firstName
    *    [Required] lastName
    *    [Required] email
-   *    [Optional] admin
-   *    [Optional] billableRate
    * @param {function} responseCallback
    *    is an optional function to perform a process over the response data.
    *
@@ -94,19 +92,15 @@ class Users extends BaseResource {
     firstName,
     lastName,
     email,
-    admin,
-    billableRate,
   }, responseCallback) {
     if (!firstName) throw new Error('first name field is missing');
     if (!lastName) throw new Error('last name field is missing');
     if (!email) throw new Error('email field is missing');
 
     const body = {
-      firstName,
-      lastName,
+      first_name: firstName,
+      last_name: lastName,
       email,
-      ...((typeof admin === 'boolean' && { admin }) || { admin: false }),
-      ...((billableRate && { billableRate }) || { billableRate: '0.0' }),
     };
 
     const URL = `${this.baseURL}/users.json`;
